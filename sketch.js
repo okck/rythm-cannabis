@@ -55,7 +55,7 @@ fetch(opensheet_uri)
       let mockup = document.createElement('div');
       mockup.classList.add('mockup');
       mockup.classList.add('swiper-slide');
-      mockup.innerHTML = `<img src=/images/${dataImgMock}.png>${counterdiv}`;
+      mockup.innerHTML = `<img src=images/${dataImgMock}.png>${counterdiv}`;
       mockupsContainer.appendChild(mockup);
       counter++;
     }
@@ -293,7 +293,7 @@ function renderLabelGallery(dataArr) {
 
     let label = document.createElement('div');
     label.classList.add('label-gallery');
-    label.innerHTML = `<img src=/images/${datapoint[4]}.png class="label-gallery-img">${counterdiv}`;
+    label.innerHTML = `<img src=images/${datapoint[4]}.png class="label-gallery-img">${counterdiv}`;
 
     labelGalleryContainer.appendChild(label);
   }
@@ -309,7 +309,7 @@ function renderLabelGrid(dataArr) {
 
     let label = document.createElement('div');
     label.classList.add('label-grid');
-    label.innerHTML = `<img src=/images/${datapoint[4]}.png>${counterdiv}`;
+    label.innerHTML = `<img src=images/${datapoint[4]}.png>${counterdiv}`;
 
     labelGridContainer.appendChild(label);
   }
