@@ -24,11 +24,11 @@
 /* fonts */
 @font-face {
   font-family: ABCMonumentGroteskMono;
-  src: url(/fonts/ABCMonumentGroteskMono-Regular-Trial.woff2);
+  src: url(fonts/ABCMonumentGroteskMono-Regular-Trial.woff2);
 }
 @font-face {
   font-family: ABCMonumentGroteskSemi-Mono;
-  src: url(/fonts/ABCMonumentGroteskSemi-Mono-Regular-Trial.woff2);
+  src: url(fonts/ABCMonumentGroteskSemi-Mono-Regular-Trial.woff2);
 }
 
 body {
