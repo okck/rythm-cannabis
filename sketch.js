@@ -1,5 +1,3 @@
-// https://docs.google.com/spreadsheets/d/1r2zMwTq1M4pom3TEXWgUoW0CDnPm-0TyQgbNB-9zirU/edit?usp=sharing
-
 let sheetID = '1r2zMwTq1M4pom3TEXWgUoW0CDnPm-0TyQgbNB-9zirU';
 let tabName = 'Sheet1';
 let opensheet_uri = `https://opensheet.elk.sh/${sheetID}/${tabName}`;
@@ -16,7 +14,6 @@ let gallery = document.getElementById('gallery');
 let gridSlider = document.getElementById('gridSlider');
 let gallerySlider = document.getElementById('gallerySlider');
 
-
 let mockupsContainer = document.getElementById('mockupsContainer');
 let labelGalleryContainer = document.getElementById('labelGalleryContainer');
 let labelgridContainer = document.getElementById('labelGridContainer');
@@ -31,7 +28,6 @@ fetch(opensheet_uri)
       return response.json();
   })
   .then(function (data) {
-    // console.log(data);
     let dataArr = [];
     let counter = 1;
     let counterdiv;
@@ -40,12 +36,8 @@ fetch(opensheet_uri)
       let dataNoiseMax = parseFloat(datapoint.noiseMax);
       let dataTotalTHC = parseFloat(datapoint.TotalTHC);
       let dataImgMock = datapoint.IMG_mock_600;
-      let dataImgLabel = datapoint.IMG_label;
-      // let dataTerpines = datapoint.Terpines;
-      // let dataAroma = datapoint.Aroma;
 
       dataArr.push([dataName, dataNoiseMax, dataTotalTHC, dataImgMock, counter]);
-      // dataArr.push([dataName, dataNoiseMax, dataTotalTHC, dataImgMock, dataTerpines, dataAroma]);
       if (counter <= 9) {
         counterdiv = `<div>0${counter}</div>`;
       } else {
@@ -63,19 +55,9 @@ fetch(opensheet_uri)
   .then(function() {
     let swiper = new Swiper('.swiper', {
       slidesPerView: 3,
-      // slidesPerView: 1,
       spaceBetween: 50,
-      // Optional parameters
       loop: true,
-      
-      // autoplay: {
-      //   // delay: 3200,
-      //   delay: 3000,
-      //   disableOnInteraction: false,
-      //   pauseOnMouseEnter: true,
-      // },
       initialSlide: 0 - 1,
-      // initialSlide: -1,
       mousewheel: true,
       mousewheel: {
         forceToAxis: true,
@@ -91,23 +73,15 @@ fetch(opensheet_uri)
     console.log("Something went wrong!", err);
 });
 
-
-
-
-
-
-
 function renderAll() {
   fetch(opensheet_uri)
     .then(function (response) {
-        return response.json();
+      return response.json();
     })
     .then(function (data) {
       console.log(data);
-
       switch(select.value) {
         case '1':
-          // sortByTHC(data);
           document.querySelector('.select-selected').style.backgroundColor = 'rgb(255, 0, 255)';
           break;
         case '2':
@@ -184,8 +158,6 @@ function renderAll() {
   });
 }
 
-
-
 // sort by THC - lo to hi
 function sortByTHC(data) {
   sortedArray = [];
@@ -237,7 +209,6 @@ function getRenderData(sortedArray) {
   document.getElementById('mockupsContainer').innerHTML = '';
   dataArr = [];
   let counter = 1;
-  // let counterdiv;
   for (let datapoint of sortedArray) {
     let dataName = datapoint[0];
 
@@ -252,14 +223,6 @@ function getRenderData(sortedArray) {
     let strain = datapoint[5];
     let dataImgMock = datapoint[3];
     let dataImgLabel = datapoint[4];
-
-    // let dataTerpines = datapoint.Terpines;
-    // let dataAroma = datapoint.Aroma;
-
-    // dataArr.push([dataName, dataNoiseMax, dataTotalTHC, dataImgMock, counter, strain]);
-    // dataArr.push([dataName, dataNoiseMax, dataTotalTHC, dataImgMock, dataTerpines, dataAroma]);
-
-
 
     if (indica.checked == true && strain == 'Indica') {
       console.log('yes indica');
@@ -286,9 +249,9 @@ function renderLabelGallery(dataArr) {
   labelGalleryContainer.innerHTML = '';
   for (let datapoint of dataArr) {
     if (datapoint[5] <= 9) {
-      counterdiv = `<div>0${datapoint[5]}</div>`;
+      counterdiv = `<div class='number'>0${datapoint[5]}</div>`;
     } else {
-      counterdiv = `<div>${datapoint[5]}</div>`;
+      counterdiv = `<div class='number'>${datapoint[5]}</div>`;
     }
 
     let label = document.createElement('div');
@@ -302,9 +265,9 @@ function renderLabelGrid(dataArr) {
   labelGridContainer.innerHTML = '';
   for (let datapoint of dataArr) {
     if (datapoint[5] <= 9) {
-      counterdiv = `<div>0${datapoint[5]}</div>`;
+      counterdiv = `<div class='number'>0${datapoint[5]}</div>`;
     } else {
-      counterdiv = `<div>${datapoint[5]}</div>`;
+      counterdiv = `<div class='number'>${datapoint[5]}</div>`;
     }
 
     let label = document.createElement('div');
@@ -319,7 +282,6 @@ function inputChangeGrid(e) {
   let target = e.target;
   console.log(target.value);
 
-  // labelgridContainer.style.width = `${target.value}%`;
   let labelGrids = document.querySelectorAll('.label-grid');
   labelGrids.forEach((labelGrid) => {
     labelGrid.style.width = `${target.value}%`;
@@ -339,7 +301,6 @@ function inputChangeGallery(e) {
   let target = e.target;
   console.log(target.value);
 
-  // labelgridContainer.style.width = `${target.value}%`;
   let labelGalleries = document.querySelectorAll('.label-gallery-img');
   labelGalleries.forEach((labelGallery) => {
     labelGallery.style.width = `${target.value}px`;

@@ -33,9 +33,7 @@
 
 body {
   font-family: 'ABCMonumentGroteskMono';
-  background: rgb(26, 26, 26);
   background: linear-gradient(180deg, rgb(26, 26, 26), black 60%);
-  background: linear-gradient(180deg, rgb(41, 41, 41), black 60%);
   color: white;
   height: 100vh;
 }
@@ -73,7 +71,7 @@ input[type="radio"] {
   height: 20px;
   margin: calc(0.75em - 11px) 0.25rem 0 0;
   vertical-align: top;
-  border: 5px solid rgb(47, 47, 47);
+  border: 5px solid rgb(26, 26, 26);
   outline: 2px solid rgb(255, 255, 255);
   border-radius : 50%;
   background: transparent no-repeat center center;
@@ -91,7 +89,7 @@ input[type="checkbox"] {
   height: 20px;
   margin: calc(0.75em - 11px) 0.25rem 0 0;
   vertical-align: top;
-  border: 5px solid rgb(47, 47, 47);
+  border: 5px solid rgb(26, 26, 26);
   outline: 2px solid rgb(255, 255, 255);
   border-radius : 50%;
   background: transparent no-repeat center center;
@@ -147,9 +145,7 @@ input[type="checkbox"]:checked{
   background-color: rgba(255, 255, 255, 0.5);
 }
 
-
 /********** Range Input Styles **********/
-/*Range Reset*/
 input[type="range"] {
   -webkit-appearance: none;
   appearance: none;
@@ -157,14 +153,11 @@ input[type="range"] {
   background-image: linear-gradient(#ffffff, #ffffff);
   background-size: 50% 100%;
   background-repeat: no-repeat;
-
   border-radius: .5rem;
   height: 0.3rem;  
-  
   cursor: pointer;
   vertical-align: middle;
 }
-/* Removes default focus */
 input[type="range"]:focus {
   outline: none;
 }
@@ -172,7 +165,6 @@ input[type="range"]:focus {
 /***** Chrome, Safari, Opera and Edge Chromium styles *****/
 /* slider track */
 input[type="range"]::-webkit-slider-runnable-track {
-  /* background-color: #148be0; */
   border-radius: 0.5rem;
   height: 0.3rem;  
 }
@@ -201,7 +193,6 @@ input[type="range"]::-webkit-slider-thumb:hover {
 /******** Firefox styles ********/
 /* slider track */
 input[type="range"]::-moz-range-track {
-  /* background-color: #ffffff; */
   border-radius: 0.5rem;
   height: 0.3rem;  
 }
@@ -226,6 +217,9 @@ input[type="range"]::-moz-range-thumb:hover {
 /* //////// END OF INPUT STYLING ///////// */
 
 .header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: fixed;
   width: 100vw;
   padding: 1rem;
@@ -235,25 +229,17 @@ input[type="range"]::-moz-range-thumb:hover {
   letter-spacing: .03rem;
 }
 form {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  display: flex;
   align-items: center;
 }
-/* .display-type, .sort-by, .strain-type {
-  justify-self: center;
-} */
 .sort-by {
-  justify-self: center;
-}
-.display-type {
-  justify-self: right;
+  margin-left: 1.5rem;
 }
 .strain-type {
-  justify-self: left;
+  margin-left: 2rem;
 }
 #submit {
-  justify-self: left;
-  margin-left: 1rem;
+  margin-left: 1.5rem;
   padding: 4px 16px;
   font-family: inherit;
   text-transform: inherit;
@@ -276,6 +262,8 @@ form {
   letter-spacing: .211rem;
   margin-left: 1rem;
   cursor: pointer;
+  position: fixed;
+  left: 1rem;
 }
 
 img {
@@ -287,12 +275,15 @@ img {
   animation: show 1s;
 }
 .mockup div {
-  /* background: red; */
   text-align: center;
   margin-top: 4.5rem;
   font-size: 1.8rem;
 }
 
+.number {
+  margin-top: .2rem;
+  margin-bottom: .5rem;
+}
 
 .label-gallery-container-wrapper {
   height: 100vh;
@@ -301,6 +292,7 @@ img {
 #labelGalleryContainer {
   align-self: center;
   display: flex;
+  padding: 0 20px;
 }
 .label-gallery {
   animation: show 1s;
@@ -313,9 +305,9 @@ img {
 #labelGridContainer {
   display: flex;
   flex-wrap: wrap;
-
   width: 100%;
   margin: 0 auto;
+  padding: 0 20px;
 }
 .label-grid-container-wrapper {
   padding-top: 5rem;
@@ -323,7 +315,6 @@ img {
   display: none;
 }
 .label-grid {
-  /* width: 20%; */
   animation: show 1s;
 }
 .label-grid img {
