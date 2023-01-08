@@ -247,6 +247,7 @@ function getRenderData(sortedArray) {
 
 function renderLabelGallery(dataArr) {
   labelGalleryContainer.innerHTML = '';
+  document.body.style.overflowY = 'hidden';
   for (let datapoint of dataArr) {
     if (datapoint[5] <= 9) {
       counterdiv = `<div class='number'>0${datapoint[5]}</div>`;
@@ -262,6 +263,7 @@ function renderLabelGallery(dataArr) {
   }
 }
 function renderLabelGrid(dataArr) {
+  document.body.style.overflowY = 'auto';
   labelGridContainer.innerHTML = '';
   for (let datapoint of dataArr) {
     if (datapoint[5] <= 9) {
